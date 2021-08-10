@@ -1,0 +1,108 @@
+<!--
+//	Intro. to GUI 1 HW4 Part 2
+//	Date: 8/7/2021
+//	By: Ari Primak
+//	This assignment involved converting HW3 to use JQuery in part 1, and adding functionality with JQuery (sliders and tabs)
+//  in part 2.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Multiplication Table Generator</title>
+
+        <script src="js/jquery-1.11.0.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/sunny/jquery-ui.css"/>
+        <!-- My personal styling comes last! -->
+        <link rel="stylesheet" href="css/style.css"/>
+    </head>
+    <body>
+        <header>Multiplication Table Generator</header>
+        <div id="top">
+            <p id="instr">Enter a number between -50 and 50 (inclusive) into each field below, then click "Submit".</p>
+            <div id="formdiv">
+                <form id="theForm">
+                    <div class="fielddiv">
+                        <div class="labeldiv">
+                            <label for="minX">Horizontal-axis minimum value:</label>
+                        </div>
+                        <!--I found the input type "number", which includes functionality to
+                            set the min and max values the field will accept. It even provides
+                            a helpful message if you are out of bounds!
+                            EDIT: After sleeping and continuing my work the next day, this seems
+                            to no longer limit the max/min entries automatically. I'm unsure what
+                            changed...
+                            It also prevents the entry of non-numeric characters.-->
+                        <div class="inputdiv">
+                            <input type="number" id="minX" name="minX" min=-50 max=50 required>
+                        </div>
+                        <div id="sld1" class="sld"></div>
+                    </div>
+                    <div class="fielddiv">
+                        <div class="labeldiv">
+                            <label for="maxX">Horizontal-axis maximum value:</label>
+                        </div>
+                        <div class="inputdiv">
+                            <input type="number" id="maxX" name="maxX" min=-50 max=50 required>
+                        </div>
+                        <div id="sld2" class="sld"></div>
+                    </div>
+                    <div class="fielddiv">
+                        <div class="labeldiv">
+                            <label for="minY">Vertical-axis minimum value:</label>
+                        </div>                        
+                        <div class="inputdiv">
+                            <input type="number" id="minY" name="minY" min=-50 max=50 required>
+                        </div>
+                        <div id="sld3" class="sld"></div>
+                    </div>
+                    <div class="fielddiv">
+                        <div class="labeldiv">
+                            <label for="maxY">Vertical-axis maximum value:</label>
+                        </div>
+                        <div class="inputdiv">
+                            <input type="number" id="maxY" name="maxY" min=-50 max=50 required>
+                        </div>
+                        <div id="sld4" class="sld"></div>
+                    </div>
+                    <div id="btndiv">
+                        <input type="button" id="sbmtbtn" value="Save Table">
+                        <input type="button" id="delbtn" value="Delete Table(s)">
+                    </div>
+                </form>
+            </div>
+            
+            <div id="tabs">
+                <ul>
+                    <li id="t0" class="shown"><a href="#table">Preview</a></li>
+                    <li id="t1" class="hidden"><a href="#save1">Default</a></li>
+                    <li id="t2" class="hidden"><a href="#save2">Default</a></li>
+                    <li id="t3" class="hidden"><a href="#save3">Default</a></li>
+                    <li id="t4" class="hidden"><a href="#save4">Default</a></li>
+                </ul>
+            </div>
+
+            <div id="openTabs">
+                <div id="table">
+                    <!--Intentionally blank by default-->
+                </div>
+                <div id="save1">
+                    <!--Intentionally blank by default-->
+                </div>
+                <div id="save2">
+                    <!--Intentionally blank by default-->
+                </div>
+                <div id="save3">
+                    <!--Intentionally blank by default-->
+                </div>
+                <div id="save4">
+                    <!--Intentionally blank by default-->
+                </div>
+            </div>
+        </div>
+        <footer>Copyright Ari Primak 2021</footer>
+    </body>
+</html>
